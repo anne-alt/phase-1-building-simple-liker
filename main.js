@@ -12,8 +12,10 @@ function liking() {
 they.forEach((item) => (item.addEventListener('click', () => {
    if (item.innerHTML === EMPTY_HEART) {
     item.innerHTML = FULL_HEART 
+    item.className = "activated-heart"
   } else {
     item.innerHTML = EMPTY_HEART
+    item.className = " "
   }
 })))
   })
