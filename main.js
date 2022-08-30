@@ -3,6 +3,43 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
+const they = document.querySelectorAll('.like-glyph')
+
+
+function liking() {
+  mimicServerCall()
+  .then( () => {
+they.forEach((item) => (item.addEventListener('click', () => {
+   if (item.innerHTML === EMPTY_HEART) {
+    item.innerHTML = FULL_HEART 
+  } else {
+    item.innerHTML = EMPTY_HEART
+  }
+})))
+  })
+
+
+
+
+// function liking(l) {
+//   const like = l.target;
+//   mimicServerCall()
+//   .then( () => {
+//     if ('like-glyph' === EMPTY_HEART) {
+//       return love.innerHTML = FULL_HEART;
+//     } else {
+//       return love.innerHTML = EMPTY_HEART;
+//     }
+
+ // })
+
+  .catch(() => {
+    console.log("me!")
+    const banner = document.getElementById('#modal');
+    setTimeout(banner, 3000)
+  })
+}
+  liking();
 
 
 
@@ -23,3 +60,4 @@ function mimicServerCall(url="http://mimicServer.example.com", config={}) {
     }, 300);
   });
 }
+
